@@ -7,7 +7,7 @@ function getUrlsFromHTML(htmlBody,baseURL){
     const dom = new JSDOM(htmlBody)
     const linkElements = dom.window.document.querySelectorAll('a')
     for(const linkElement of linkElements ){
-        if(linkElement.href.slice(0,1)==='/'){
+        if(linkElement.href.slice(0,1) ==='/'){
             //relative
             urls.push(`${baseURL}${linkElement.href}`)
         }else{
