@@ -1,6 +1,22 @@
 const { Console } = require('console');
 const{JSDOM} = require('jsdom');
 
+async  function crawkPage(currentURL){
+    console.log(` atividade de Crawling : ${currentURL} `)
+}
+
+try{
+    const resp = await fetch(crawkPage)
+
+    if(resp.status > 399){
+        console.log(` Error in Fetch  : ${resp.status} on Page : ${currentURL} `)
+        return
+    }
+    console.log(await resp.text())
+}catch(err){
+    console.log(` Error in Fetch ${err.message}, on page: ${currentURL}`)
+}
+
 
 function getUrlsFromHTML(htmlBody,baseURL){
     const urls = []
